@@ -1,20 +1,23 @@
 ---
-title: 'BioHackJP 2023 Report R1: linked data standardization with LLMs'
-title_short: 'BioHackJP 2023 LD-LLM'
+title: 'DeepGO GO assignment evaluation in metagenome'
+title_short: 'DeepGO metagenome evaluation'
 tags:
-  - Linked Data
-  - Large Language Models
+  - GO
+  - Microbiome
 authors:
-  - name: First Author
-    orcid: 0000-0000-0000-0000
+  - name: Rund E. Tawfiq
+    orcid: 0000-0002-7052-573X
     affiliation: 1
-  - name: Last Author
-    orcid: 0000-0000-0000-0000
+  - name: Hiroshi Mori
+    orcid: 0000-0003-0806-7704
     affiliation: 2
+  - name: Robert Hoehndorf
+    orcid: 0000-0001-8149-5890
+    affiliation: 1  
 affiliations:
-  - name: First Affiliation
+  - name: King Abdullah University of Science and Technology (KAUST): Thuwal, Kingdom of Saudi Arabia
     index: 1
-  - name: Second Affiliation
+  - name: National Institute of Genetics: Mishima, Japan
     index: 2
 date: 30 June 2023
 cito-bibliography: paper.bib
@@ -22,38 +25,51 @@ event: BH23JP
 biohackathon_name: "BioHackathon Japan 2023"
 biohackathon_url:   "https://2023.biohackathon.org/"
 biohackathon_location: "Kagawa, Japan, 2023"
-group: R1
+group: R2
 # URL to project git repo --- should contain the actual paper.md:
-git_url: https://github.com/biohackathon-jp/bh23-report-template
+git_url: https://github.com/biohackathon-jp/bh23-deepgo-eval
 # This is the short authors description that is used at the
 # bottom of the generated paper (typically the first two authors):
-authors_short: First Author \emph{et al.}
+authors_short: Rund E. Tawfiq \emph{et al.}
 ---
 
 # Background
 
-The field of bioinformatics plays a crucial role in enabling researchers to extract meaningful insights from the vast amount of biological data generated today. With advancements in technology and the availability of large-scale datasets, it has become increasingly important to develop standardized approaches for representing and integrating biological information. Linked data, a method for publishing structured data on the web, has emerged as a promising solution for facilitating the integration and interoperability of diverse biological data sources.
-
-The BioHackathon 2023, held in Japan, provided an ideal platform for researchers and bioinformatics enthusiasts to collaborate and explore innovative solutions to address the challenges in the field. Our project focused on the application of Linked Data and Large Language Models (LLMs) to standardize biological data and enhance its accessibility and usability.
-
-LLMs, such as OpenAI's GPT-3.5 architecture, have demonstrated remarkable capabilities in understanding and generating human-like text. Leveraging the power of LLMs, we aimed to automate the process of extracting relevant biological terms from unstructured text and mapping them to existing ontology terms. Ontologies, which are hierarchical vocabularies of terms and their semantic relationships, provide a standardized framework for organizing and categorizing biological concepts.
+Metagenomic sequencing data contains many genes from uncultured bacteria. Functional predictions of metagenomic genes are still challenging. Usually metagenomic gene function predictions are performed by protein sequence similarity searches against large reference protein sequence database like KEGG amino acid sequence database or InterPro. Protein sequence similarity searches using popular tools (e.g.,DIAMOND, MMSeqs2, InterProScan) with millions of query sequences needs many times and one of the largest bottle neck of microbiome research.
+DeepGO and DeepGOPlus are deep learning based protein function prediction tools that assign Gene Ontology (GO) functions to protein sequences. DeepGOPlus combines a deep convolutional neural network (CNN) with sequence similarity-based predictions. The model combines motif-based function prediction and sequence similarity based search (if similar proteins with known functions are available). DeepGO incorporates protein structure information using ESMFold structure predictions as an additional feature, but is currently limited to predicting GO functions in the Molecular Function domain.
+Both DeepGO and DeepGOPlus could overcome many limitations of large-scale protein function prediction in metagenomics. The models can perform predictions with high speed, can perform genome-scale annotations, and can be used to annotate newly sequenced organisms. In this project, we apply DeepGOPlus and newest DeepGO software for metagenome gene function prediction.
 
 # Outcomes
 
-To achieve our objectives, we conducted a comprehensive survey of open source language models available and evaluated their suitability for our task. We explored different models, taking into consideration factors such as performance, computational requirements, and ease of deployment. Subsequently, we sought to run the selected models on a local computer, ensuring that the infrastructure requirements were met.
+Tool evaluation using metagenome data is usually difficult because we cannot know true community composition of the sequence data obtained. Mori group recently developed new human gut mock community that is constructed from 18 genome sequenced species. The Illumina NovaSeq 6000 250 bp paired-end metagenomic sequencing data of the DNA-mix of 18 species are assembled by MEGAHIT and predicted protein-coding genes by Prodigal metagenome option. Assembling result is good (N50 104.8 kb, 7118 contigs). These contigs encode 63537 protein sequences (average 302.6 AAs). We compared three GO assignment methods:
+(i) InterProScan v5.62-94.0 and InterPro2GO
+(ii) DeepGOPlus v1.0.1
+(iii) DeepGO latest version (unpublished)
+by counting how many GOs are shared between methods.
 
-Having established a working environment for LLMs, we developed a set of pipelines that incorporated various natural language processing techniques to extract relevant biological terms from textual data. These terms were then matched and mapped to the corresponding ontology terms, thereby providing a standardized representation of the extracted information. By utilizing Linked Data principles, we aimed to create an interconnected network of biological knowledge that would facilitate data integration and enable advanced analysis.
+DeepGO/DeepGOPlus could assign GO functions more than 99% proteins (62920/63537 proteins in DeepGO). InterProScan could assign GO functions at 53.6% proteins (34078/63537 proteins).
+The comparison result is summarized in the following Venn diagram.
+The result indicates that DeepGO/DeepGOPlus assign many GOs. Mori checked some of the protein GO assignment result and noticed that DeepGO/DeepGOPlus tends to overassign broad range of related gene functions especially enzymes.
+
+The calculation speed latest DeepGO is almost 10 times faster than InterProScan.
 
 ![Caption for BioHackrXiv logo figure](./biohackrxiv.png)
 
+InterProScan	110 minutes	10 threads
+DeepGO	27.5 minutes	3 threads
+DeepGOPlus	48.4 minutes	16 threads
+
 # Future work
 
-Moving forward, there are several areas of potential future work to enhance our project's linked data standardization with LLMs. First, exploring advanced LLMs and optimizing computational efficiency can improve performance. Additionally, expanding ontology mapping to cover more domains and integrating external data sources would increase the scope of our standardization efforts. Validating and evaluating results against gold-standard datasets, involving domain experts, and developing a user-friendly interface for researchers to interact with the pipelines are crucial next steps. These future endeavors will refine and advance our methodology, increasing its impact and adoption in bioinformatics.
+The calculation speed of DeepGO is very good. But replacing the sequence similarity search in metagenomic analysis to DeepGO is still need careful quality assessment. DeepGO is currently intensely updating the tool algorithm. Since the upcoming DeepGO version will improve assignment results, the continuas evaluation of the gene functional prediction tools is necessary.
 
 ## Acknowledgements
 
-We would like to thank the fellow participants at BioHackathon 2023 for their collaboration and constructive advice, which greatly influenced our project. We are grateful to the organizers for providing this platform and the developers of open source language models. Special thanks to our mentors, advisors, and colleagues for their guidance and support. Without their contributions, our project in linked data standardization with LLMs in bioinformatics would not have been possible.
+We would like to thank the organizers for providing this Hackathon opportunity.
 
 ## References
 
-1.
+1.hoge
+2.fuga
+3.haga
+
