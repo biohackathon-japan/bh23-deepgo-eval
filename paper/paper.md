@@ -15,9 +15,9 @@ authors:
     orcid: 0000-0001-8149-5890
     affiliation: 1
 affiliations:
-  - name: King Abdullah University of Science and Technology (KAUST) Thuwal, Kingdom of Saudi Arabia
+  - name: KAUST, Thuwal, Kingdom of Saudi Arabia
     index: 1
-  - name: National Institute of Genetics: Mishima, Japan
+  - name: National Institute of Genetics, Mishima, Japan
     index: 2
 date: 30 June 2023
 cito-bibliography: paper.bib
