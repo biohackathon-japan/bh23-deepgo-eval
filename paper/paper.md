@@ -72,4 +72,3 @@ We would like to thank the organizers for providing this Hackathon opportunity.
 1.hoge
 2.fuga
 3.haga
-
