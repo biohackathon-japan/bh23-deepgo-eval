@@ -51,14 +51,13 @@ by counting how many GOs are shared between methods.
 DeepGO/DeepGOPlus could assign GO functions more than 99% proteins (62920/63537 proteins in DeepGO). InterProScan could assign GO functions at 53.6% proteins (34078/63537 proteins).
 The comparison result is summarized in the following Venn diagram.
 The result indicates that DeepGO/DeepGOPlus assign many GOs. Mori checked some of the protein GO assignment result and noticed that DeepGO/DeepGOPlus tends to overassign broad range of related gene functions especially enzymes.
+![DeepGOvsInterProScanVenn](./Venn1.png)
+
 
 The calculation speed latest DeepGO is almost 10 times faster than InterProScan.
 
-![DeepGOvsInterProScanVenn](./Venn1.png)
 
-InterProScan	110 minutes	10 threads
-DeepGO	27.5 minutes	3 threads
-DeepGOPlus	48.4 minutes	16 threads
+![Speed](./Speed2.png)
 
 # Future work
 
