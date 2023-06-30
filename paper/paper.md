@@ -36,9 +36,8 @@ authors_short: Rund E. Tawfiq \emph{et al.}
 
 # Background
 
-Metagenomic sequencing data contains many genes from uncultured bacteria. Functional predictions of metagenomic genes are still challenging. Usually metagenomic gene function predictions are performed by protein sequence similarity searches against large reference protein sequence database like KEGG amino acid sequence database or InterPro. Protein sequence similarity searches using popular tools (e.g.,DIAMOND, MMSeqs2, InterProScan) with millions of query sequences needs many times and one of the largest bottle neck of microbiome research.
-DeepGO and DeepGOPlus are deep learning based protein function prediction tools that assign Gene Ontology (GO) functions to protein sequences. DeepGOPlus combines a deep convolutional neural network (CNN) with sequence similarity-based predictions. The model combines motif-based function prediction and sequence similarity based search (if similar proteins with known functions are available). DeepGO incorporates protein structure information using ESMFold structure predictions as an additional feature, but is currently limited to predicting GO functions in the Molecular Function domain.
-Both DeepGO and DeepGOPlus could overcome many limitations of large-scale protein function prediction in metagenomics. The models can perform predictions with high speed, can perform genome-scale annotations, and can be used to annotate newly sequenced organisms. In this project, we apply DeepGOPlus and newest DeepGO software for metagenome gene function prediction.
+Metagenomic sequencing data contain many genes from uncultured bacteria. Functional prediction of metagenomic genes is still a challenge. In general, metagenomic gene function prediction is performed by protein sequence similarity searches against large reference protein sequence databases such as KEGG amino acid sequence database or InterPro. Protein sequence similarity searches using popular tools (e.g., DIAMOND, MMseqs2, InterProScan) with millions of query sequences take a lot of computational time and are one of the major bottlenecks in microbiome research (Mori H. et al. Bioinformatics. 2021).<br><br>
+DeepGO and DeepGOPlus are deep learning based protein function prediction tools that assign Gene Ontology (GO) functions to protein sequences (Kulmanov M. et al. Bioinformatics. 2018, Kulmanov M & Hoehndorf R. Bioinformatics. 2020). DeepGOPlus combines a deep convolutional neural network (CNN) with sequence similarity-based predictions. The model combines motif-based function prediction and sequence similarity based search (if similar proteins with known functions are available). DeepGO incorporates protein structure information using ESMFold structure predictions as an additional feature, but is currently limited to predicting GO functions in the Molecular Function domain. Both DeepGO and DeepGOPlus could overcome many limitations of large-scale protein function prediction in metagenomics. The models can perform predictions with high speed, can perform genome-scale annotations, and can be used to annotate newly sequenced organisms. In this project, we apply DeepGOPlus and the latest DeepGO software for metagenome gene function prediction.<br>
 
 # Outcomes
 
@@ -69,6 +68,7 @@ We would like to thank the organizers for providing this Hackathon opportunity.
 
 ## References
 
-1.hoge
-2.fuga
-3.haga
+1. Mori H, Ishikawa H, Higashi K, Kato Y, Ebisuzaki T, Kurokawa K. PZLAST: an ultra-fast amino acid sequence similarity search server against public metagenomes. Bioinformatics. 2021, 37(21):3944-3946. [https://doi.org/10.1093/bioinformatics/btab492](https://doi.org/10.1093/bioinformatics/btab492)
+2. Kulmanov M, Khan MA, Hoehndorf R, Wren J. DeepGO: predicting protein functions from sequence and interactions using a deep ontology-aware classifier. Bioinformatics. 2018, 34(4):660-668. [https://doi.org/10.1093/bioinformatics/btx624](https://doi.org/10.1093/bioinformatics/btx624)
+3. Kulmanov M, Hoehndorf R. DeepGOPlus: improved protein function prediction from sequence. Bioinformatics. 2020, 36(2):422-429. [https://doi.org/10.1093/bioinformatics/btz595](https://doi.org/10.1093/bioinformatics/btz595)
+4. 
