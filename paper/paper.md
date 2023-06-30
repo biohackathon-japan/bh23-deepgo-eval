@@ -54,7 +54,7 @@ The result indicates that DeepGO/DeepGOPlus assign many GOs. Mori checked some o
 
 The calculation speed latest DeepGO is almost 10 times faster than InterProScan.
 
-![Caption for BioHackrXiv logo figure](./biohackrxiv.png)
+![DeepGOvsInterProScanVenn](./Venn1.png)
 
 InterProScan	110 minutes	10 threads
 DeepGO	27.5 minutes	3 threads
