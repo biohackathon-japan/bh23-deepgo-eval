@@ -11,9 +11,6 @@ authors:
   - name: Hiroshi Mori
     orcid: 0000-0003-0806-7704
     affiliation: 2
-  - name: Robert Hoehndorf
-    orcid: 0000-0001-8149-5890
-    affiliation: 1
 affiliations:
   - name: King Abdullah University of Science and Technology (KAUST) Thuwal, Kingdom of Saudi Arabia
     index: 1
