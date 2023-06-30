@@ -26,6 +26,7 @@ biohackathon_name: "BioHackathon Japan 2023"
 biohackathon_url:   "https://2023.biohackathon.org/"
 biohackathon_location: "Kagawa, Japan, 2023"
 group: R2
+
 # URL to project git repo --- should contain the actual paper.md:
 git_url: https://github.com/biohackathon-jp/bh23-deepgo-eval
 # This is the short authors description that is used at the
