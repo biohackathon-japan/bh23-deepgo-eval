@@ -1,3 +1,7 @@
+# DeepGO GO assignment evaluation in metagenome
+Please see [this link](https://github.com/biohackathon-japan/bh23-deepgo-eval/blob/main/paper/paper.md)
+
+
 # BioHackJP 23 Report Template
 
 Minimal example of a [BioHackrXiv](https://biohackrxiv.org/) publication that can be generated with the
